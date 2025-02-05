@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration</h2>
+        <form id="registrationForm">
+            <input type="text" id="username" placeholder="Username">
+            <span class="error" id="usernameError"></span>
+            
+            <input type="email" id="email" placeholder="Email">
+            <span class="error" id="emailError"></span>
+            
+            <input type="text" id="phone" placeholder="Phone Number">
+            <span class="error" id="phoneError"></span>
+            
+            <input type="password" id="password" placeholder="Password">
+            <span class="error" id="passwordError"></span>
+            
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <span class="error" id="confirmPasswordError"></span>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let isValid = true;
+            
+            let username = document.getElementById("username").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+            
+            document.getElementById("usernameError").innerText = username === "" ? "Username cannot be empty" : "";
+            
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,3}$/;
+            document.getElementById("emailError").innerText = emailPattern.test(email) ? "" : "Invalid email format";
+            
+            let phonePattern = /^[0-9]{10}$/;
+            document.getElementById("phoneError").innerText = phonePattern.test(phone) ? "" : "Phone must be 10 digits";
+            
+            let passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[&$#@]).{7,}$/;
+            document.getElementById("passwordError").innerText = passwordPattern.test(password) ? "" : "Password must be 7+ chars, 1 uppercase, 1 digit, 1 special char (&,$,#,@)";
+            
+            document.getElementById("confirmPasswordError").innerText = password === confirmPassword ? "" : "Passwords do not match";
+            
+            if (username === "" || !emailPattern.test(email) || !phonePattern.test(phone) || !passwordPattern.test(password) || password !== confirmPassword) {
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert("Registration Successful");
+                document.getElementById("registrationForm").reset();
+            }
+        });
+    </script>
+</body>
+</html>

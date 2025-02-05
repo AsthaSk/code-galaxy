@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .dynamic-text {
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="title">Student Registration</h2>
+        <form id="registrationForm">
+            <input type="text" id="username" placeholder="Username">
+            <span class="error" id="usernameError"></span>
+            
+            <input type="email" id="email" placeholder="Email">
+            <span class="error" id="emailError"></span>
+            
+            <input type="text" id="phone" placeholder="Phone Number">
+            <span class="error" id="phoneError"></span>
+            
+            <input type="password" id="password" placeholder="Password">
+            <span class="error" id="passwordError"></span>
+            
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <span class="error" id="confirmPasswordError"></span>
+            
+            <button type="submit">Register</button>
+        </form>
+        <button id="changeTextBtn">Change Title</button>
+        <button id="changeImageBtn">Change Image</button>
+        <button id="addTextNode">Add Text</button>
+        <button id="deleteTextNode">Delete Text</button>
+        <p id="dynamicText" class="dynamic-text"></p>
+        <img id="image" src="https://via.placeholder.com/150" alt="Placeholder Image">
+    </div>
+
+    <script>
+        document.getElementById("changeTextBtn").addEventListener("click", function() {
+            document.getElementById("title").innerHTML = "Updated Student Registration";
+        });
+
+        document.getElementById("changeImageBtn").addEventListener("click", function() {
+            document.getElementById("image").src = "https://via.placeholder.com/200";
+        });
+
+        document.getElementById("addTextNode").addEventListener("click", function() {
+            let textNode = document.createTextNode("This is dynamically added text.");
+            document.getElementById("dynamicText").appendChild(textNode);
+        });
+
+        document.getElementById("deleteTextNode").addEventListener("click", function() {
+            let textNode = document.getElementById("dynamicText");
+            if (textNode.firstChild) {
+                textNode.removeChild(textNode.firstChild);
+            }
+        });
+
+        $(document).ready(function(){
+            $("#changeTextBtn").click(function(){
+                $(this).text("Title Changed");
+            });
+
+            $("body").css("background-image", "url('https://via.placeholder.com/500')");
+
+            $("#registrationForm").submit(function(event){
+                event.preventDefault();
+                alert("Form Data: " + $("#username").val() + ", " + $("#email").val());
+            });
+
+            $("#image").attr("alt", "Updated Image");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity Tracker</title>
+</head>
+<body>
+    <h1>User Activity Tracker</h1>
+    <p><strong>Last visited page:</strong> <span id="lastPage">Loading...</span></p>
+    <p><strong>Last visited timestamp:</strong> <span id="timestamp">Loading...</span></p>
+
+    <script>
+        // Function to get cookie value by name
+        function getCookie(name) {
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookies = decodedCookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Retrieve cookies for last visited page and timestamp
+        const lastPage = getCookie('lastPage');
+        const timestamp = getCookie('timestamp');
+
+        // Display the last visited page and timestamp on the webpage
+        if (lastPage && timestamp) {
+            document.getElementById('lastPage').textContent = lastPage;
+            document.getElementById('timestamp').textContent = new Date(parseInt(timestamp) * 1000).toLocaleString();
+        }
+    </script>
+</body>
+</html>
