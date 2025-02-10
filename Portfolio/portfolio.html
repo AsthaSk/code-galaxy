@@ -6,6 +6,22 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
     <script defer src="portfolio.js"></script>
+    <style>
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff6f61;
+        }
+        .project img {
+            width: 100%;
+            max-width: 400px;
+            display: none;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,21 +39,23 @@
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <img src="mypic.jpg" alt="Profile Picture" class="profile-pic">
-            <p id="intro-text">Hello! I'm Astha Singh Kushwaha, a passionate developer.</p>
+            <img src="C:\Users\Aastha\OneDrive\Desktop\imp docs\mypic1.jpg" alt="Profile Picture" class="profile-pic">
+            <p id="intro-text">Hello! I'm Astha Singh Kushwaha, pursuing Btech Electrical & Computer Engineering.</p>
         </section>
         
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
-                <a href="#">View Project</a>
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio website showcasing skills, projects, and contact details.</p>
+                <a href="https://github.com/AsthaSk/code-galaxy/tree/main/Portfolio" onclick="toggleProjectImage('project1-img')">View Project</a>
+                <img id="project1-img" src="C:\Users\Aastha\OneDrive\Pictures\Screenshots\Screenshot 2025-02-11 000047.png" alt="Portfolio Website Preview">
             </div>
             <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-                <a href="#">View Project</a>
+                <h3>To-Do List App</h3>
+                <p>A to-do list web app that allows users to add, edit, and delete tasks.</p>
+                <a href="https://github.com/AsthaSk/code-galaxy/blob/main/todolist.html" onclick="toggleProjectImage('project2-img')">View Project</a>
+                <img id="project2-img" src="C:\Users\Aastha\OneDrive\Pictures\Screenshots\Screenshot 2025-02-11 000306.png" alt="To-Do List App Preview">
             </div>
         </section>
         
@@ -56,6 +74,12 @@
     <footer>
         <p>2025 My Portfolio | Made with ❤️</p>
     </footer>
+    
+    <script>
+        function toggleProjectImage(imageId) {
+            let img = document.getElementById(imageId);
+            img.style.display = img.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
-
