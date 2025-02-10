@@ -9,48 +9,53 @@
 </head>
 <body>
     <header>
-        <h1>My Portfolio</h1>
+        <nav class="navbar">
+            <h1>My Portfolio</h1>
+            <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     
     <div class="container">
-        <h2>About Me</h2>
-        <img src="C:\Users\Aastha\OneDrive\Desktop\imp docs\mypic1.jpg" alt="Profile Picture" class="profile-pic">
-        <p id="intro-text">Hello! I'm Astha Singh Kushwaha. Welcome to my portfolio.</p>
-        <p>I'm currently pursuing Btech Electrical & Computer Engineering</p>
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="mypic.jpg" alt="Profile Picture" class="profile-pic">
+            <p id="intro-text">Hello! I'm Astha Singh Kushwaha, a passionate developer.</p>
+        </section>
         
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">
-                <span class="skill-badge" onclick="toggleDescription('graphic-design')">Graphic Designing ⬇</span>
-                <p class="skill-description" id="graphic-design">Creating visually appealing designs using tools like Photoshop, Illustrator, and Canva.</p>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+                <a href="#">View Project</a>
             </div>
-
-            <div class="skill">
-                <span class="skill-badge" onclick="toggleDescription('html')">HTML ⬇</span>
-                <p class="skill-description" id="html">Structuring web pages with semantic HTML elements for better accessibility and SEO.</p>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+                <a href="#">View Project</a>
             </div>
-
-            <div class="skill">
-                <span class="skill-badge" onclick="toggleDescription('css')">CSS ⬇</span>
-                <p class="skill-description" id="css">Styling web pages using CSS, including Flexbox, Grid, and animations for a modern look.</p>
-            </div>
-
-            <div class="skill">
-                <span class="skill-badge" onclick="toggleDescription('javascript')">JavaScript ⬇</span>
-                <p class="skill-description" id="javascript">Making websites interactive with JavaScript, DOM manipulation, and event handling.</p>
-            </div>
-        </div>
-
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:astha.k1410@gmail.com">astha.k1410@gmail.com</a></p>
-        <p>Phone: <a href="tel:+918097816008">+91 8097816008</a></p>
+        </section>
         
-        <button class="btn" onclick="showMessage()">Click Me!</button>
-        <p id="message">🎉 Thanks for visiting my portfolio! 🚀</p>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn">Send Message</button>
+                <p id="form-message"></p>
+            </form>
+        </section>
     </div>
-
+    
     <footer>
-        <p> 2025 My Portfolio | Made with ❤️</p>
+        <p>2025 My Portfolio | Made with ❤️</p>
     </footer>
 </body>
 </html>
+

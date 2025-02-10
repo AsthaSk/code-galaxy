@@ -1,32 +1,39 @@
-function showMessage() {
-    let msg = document.getElementById("message");
-    msg.style.display = "block";
-
-    // Add animation effect
-    msg.style.opacity = "0";
-    msg.style.transform = "translateY(-10px)";
-    
-    setTimeout(() => {
-        msg.style.opacity = "1";
-        msg.style.transform = "translateY(0)";
-    }, 100);
+// Toggle mobile navigation menu
+function toggleMenu() {
+    let navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
 }
 
-// Dynamic greeting based on time
-window.onload = function () {
-    let introText = document.getElementById("intro-text");
-    let currentHour = new Date().getHours();
-    if (currentHour < 12) {
-        introText.innerText = "Good morning! I'm a passionate developer. Welcome to my portfolio.";
-    } else if (currentHour < 18) {
-        introText.innerText = "Good afternoon! I'm a passionate developer. Welcome to my portfolio.";
-    } else {
-        introText.innerText = "Good evening! I'm a passionate developer. Welcome to my portfolio.";
-    }
-};
+// Form Validation
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-// Toggle skill descriptions
-function toggleDescription(skillId) {
-    let description = document.getElementById(skillId);
-    description.style.display = description.style.display === "block" ? "none" : "block";
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let formMessage = document.getElementById("form-message");
+
+    if (name === "" || email === "" || message === "") {
+        formMessage.style.color = "red";
+        formMessage.innerText = "Please fill in all fields.";
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        formMessage.style.color = "red";
+        formMessage.innerText = "Please enter a valid email address.";
+        return;
+    }
+
+    formMessage.style.color = "green";
+    formMessage.innerText = "Message sent successfully!";
+
+    // Reset form fields
+    document.getElementById("contact-form").reset();
+});
+
+// Email validation function
+function validateEmail(email) {
+    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
