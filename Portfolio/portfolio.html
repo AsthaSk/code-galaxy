@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <script defer src="portfolio.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    
+    <div class="container">
+        <h2>About Me</h2>
+        <img src="C:\Users\Aastha\OneDrive\Desktop\imp docs\mypic1.jpg" alt="Profile Picture" class="profile-pic">
+        <p id="intro-text">Hello! I'm Astha Singh Kushwaha. Welcome to my portfolio.</p>
+        <p>I'm currently pursuing Btech Electrical & Computer Engineering</p>
+        
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">
+                <span class="skill-badge" onclick="toggleDescription('graphic-design')">Graphic Designing ⬇</span>
+                <p class="skill-description" id="graphic-design">Creating visually appealing designs using tools like Photoshop, Illustrator, and Canva.</p>
+            </div>
+
+            <div class="skill">
+                <span class="skill-badge" onclick="toggleDescription('html')">HTML ⬇</span>
+                <p class="skill-description" id="html">Structuring web pages with semantic HTML elements for better accessibility and SEO.</p>
+            </div>
+
+            <div class="skill">
+                <span class="skill-badge" onclick="toggleDescription('css')">CSS ⬇</span>
+                <p class="skill-description" id="css">Styling web pages using CSS, including Flexbox, Grid, and animations for a modern look.</p>
+            </div>
+
+            <div class="skill">
+                <span class="skill-badge" onclick="toggleDescription('javascript')">JavaScript ⬇</span>
+                <p class="skill-description" id="javascript">Making websites interactive with JavaScript, DOM manipulation, and event handling.</p>
+            </div>
+        </div>
+
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:astha.k1410@gmail.com">astha.k1410@gmail.com</a></p>
+        <p>Phone: <a href="tel:+918097816008">+91 8097816008</a></p>
+        
+        <button class="btn" onclick="showMessage()">Click Me!</button>
+        <p id="message">🎉 Thanks for visiting my portfolio! 🚀</p>
+    </div>
+
+    <footer>
+        <p> 2025 My Portfolio | Made with ❤️</p>
+    </footer>
+</body>
+</html>
